@@ -1,0 +1,576 @@
+/* ---------------------- IMPORT --------------------- */
+/* --------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu&display=swap');
+@import "compass";
+
+/* -----------------CONFIG COULEURS PAGE-------------- */
+/* --------------------------------------------------- */
+:root {
+    --ecriture: #fff;
+    --background: #fff;
+}
+
+/* ------------- MISE EN PAGE DU GENERAL ------------- */
+/* --------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    /* Animations pour tout le texte de la page */
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+}
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 9rem;
+}
+/* Mise en page de roulette */
+html::-webkit-scrollbar {
+    width: 0.5rem;
+}
+html::-webkit-scrollbar-track {
+    background: transparent top right no-repeat;
+    background-size: cover;
+}
+html::-webkit-scrollbar-thumb {
+    background: #c9272f;
+    border-radius: 3rem;
+}
+
+body {
+    background: #fff;
+    overflow-x: hidden;
+}
+body::before {
+    content: "";
+    position: fixed;
+    background-size: cover;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    z-index: -1;
+    filter: brightness(50%);
+}
+
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+
+
+/* -------------- CONFIGURATION DU MENU -------------- */
+/* --------------------------------------------------- */
+
+/* MENU */
+nav {
+    background: #fff;
+    position: fixed;
+    width:100%;
+    z-index: 1000;
+    box-shadow: 0.2px 1px 10px grey;
+    padding: 0px 0px;
+}
+nav:after {
+    content: '';
+    clear: both;
+    display: table;
+}
+/* Différentes caractéristiques du Titre de mon menu */
+nav .logo a {
+    float: left;
+    color: #fff;
+    font-size: 27px;
+    font-weight: 600;
+    padding-left: 30px;
+    text-decoration: none;
+}
+nav .logo a img {
+    height: 64px;
+    padding-top: 12px;
+}
+/* Ajout de couleur sur une partie de mon Titre */
+nav strong {
+    color: #870d0d;
+}
+nav ul {
+    float: right;
+    list-style: none;
+    position: relative;
+}
+nav ul li {
+   display: inline-block;
+   background: #fff;
+   margin: 0 5px;
+}
+nav ul li a {
+    color: #c9272f;
+    line-height: 70px;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: cursive;
+    padding: 8px 15px;
+    text-align: center;
+    font-weight: bold;
+}
+/* Mise en page du menu active et du menu au contact de la souris */
+nav ul li a:hover,
+nav ul li a.active,
+nav ul li label.active,
+label .active {
+    border-radius: 5px;
+    text-decoration: underline 2px;
+    width: 32%;
+}
+.show,.icon,input {
+    display: none;
+}
+#btn {display: none;}
+.fa-plus {
+    font-size: 15px;
+    margin-left: 40px;
+}
+/* RESPONSIVE */
+/* Mise en page du bouton pour le format Smartphone */
+@media all and (max-width:450px) {
+    nav .logo a {
+        font-size: 24px;
+    }
+}
+/* Mise en page pour tablette */
+@media screen and (min-width:950px) and (max-width:1056px) {
+    nav .logo a {
+        padding-left: 40px;
+        width: 40%;
+    }
+    nav ul {
+        margin-right: 10px;
+    }
+    nav lu li a {
+        line-height: 70px;
+        padding: 7px 11px;
+    }
+}
+/* Mise en page pour le bouton du Menu */
+@media all and (max-width:1057px) {
+    nav ul {
+        margin-right: 0px;
+        width: 100%;
+    }
+    nav .logo a {
+        padding-left: 20px;
+        width: 100%;
+    }
+    .show + a, ul {
+        display: none;
+    }
+    nav ul li {
+        display: block;
+        width: 94%;
+    }
+    .show {
+        display: block;
+        color: #fff;
+        font-size: 18px;
+        padding: 0 15px;
+        line-height: 70px;
+        cursor: pointer;
+    }
+    .show-active {
+        color: #870d0d;
+        font-weight: bold;
+    }
+    label .active {
+        color: #870d0d;
+    }
+    .icon {
+        display: block;
+        color: #c74242;
+        position: absolute;
+        top: 0;
+        right: 25px;
+        line-height: 70px;
+        cursor: pointer;
+        font-size: 25px;
+    }
+    [id^=btn]:checked + ul {
+        display: block;
+    }
+    span.cancel:before {
+        content: '\f00d';
+    }
+}
+/* ------------------------------------------------- */
+
+
+/* ---------------- ACUEIL / CONTACT --------------- */
+/* ------------------------------------------------- */
+.home {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 55vh;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-bottom: 5rem;
+}
+#home {
+    background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.7)), url(../img/accueil.svg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.home .content{
+    text-align: center;
+    padding-top: 9rem;
+    margin:2rem auto;
+    max-width: 119rem;
+}
+.home .content h3{
+    color: #fff;
+    font-size: 6vw;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+.contact {
+    min-height: 0;
+    padding-top: 5%;
+    padding-bottom: 0;
+}
+.contact .content {
+    padding-top: 0;
+}
+.contact .content h3 {
+    color: #040404;
+}
+
+/* Mise en page pour Smartphone */
+@media (max-width: 768px) {
+    .home {
+        min-height: 42vh;
+    }
+    .home .content h3 {
+        font-size: 9vw;
+    }
+    .contact {
+        min-height: 0;
+        padding-top: 15%;
+        padding-bottom: 0;
+    }
+}
+@media screen and (min-width: 768px) and (max-width:1081px) {
+    .home .content {
+        max-width: 130rem;
+    }
+}
+@media screen and (min-width: 1081px) and (max-width:1350px) {
+    .home .content {
+        max-width: 71rem;
+    }
+}
+@media screen and (min-width: 1350px) and (max-width:1440px) {
+    .home .content {
+        max-width: 71rem;
+    }
+}
+@media screen and (min-width: 1440px) and (max-width:1634px) {
+    .home .content {
+        max-width: 101rem;
+    }
+}
+@media (min-width: 1760px) {
+    .home .content {
+        max-width: 130rem;
+    }
+}
+/* --------------------------------------------------- */
+
+
+/* ------------- SECTION : NOTRE AFFICHE ------------- */
+/* --------------------------------------------------- */
+.section {
+    width: 100%;
+    padding: 25px 0px;
+}
+#quoi, #loi, #agir {
+    background-color: #c9272f;
+}
+#quoi .inverse, #loi .inverse, #agir .inverse,
+#quoi p, #loi p, #agir p {
+    color: #fff;
+}
+#quoi .separation, #loi .separation, #agir .separation {
+    background-color: #fff;
+}
+.section img {
+    width: 30%;
+    padding: 15px;
+    margin: auto;
+    display: flex;
+}
+.separation {
+    text-align: center;
+    height: 1.5px;
+    width: 20%;
+    background-color: #c9272f;
+    display: flex;
+    margin: auto;
+}
+.section h2 {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    font-size: 30px;
+    font-family: 'Noto Serif Telugu', serif;
+}
+.section p {  
+    text-align: center;
+    padding: 15px 15%;
+    font-size: 20px;
+}
+/* Mise en page pour Smartphone */
+@media (max-width: 768px) {
+    .section img {
+        width: 95%;
+    }
+    .section hr {
+        width: 50%;
+    }
+    .section h2 {
+        font-size: 25px;
+    }
+    .section p {
+        padding: 15px 5%;
+        font-size: 19px;
+    }
+}
+/* --------------------------------------------------- */
+
+
+/* ---------------- SECTION : CONTACT ---------------- */
+/* --------------------------------------------------- */
+#contact {
+    padding-bottom: 0;
+}
+#contact img {
+    width: 58%;
+    padding: 15px;
+    padding-bottom: 0;
+    margin: auto;
+    display: flex;
+}
+@media (max-width: 768px) {
+    #contact img {
+        width: 100%;
+        padding: 0;
+    }
+}
+/* --------------------------------------------------- */
+
+
+/* ------------------ SECTION : APP ------------------ */
+/* --------------------------------------------------- */
+#applications {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+}
+#applications .app {
+    background-color: white;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 10px;
+}
+#applications .app .app_img img {
+    width: 25%;
+    height: auto;
+}
+#applications .app .app_img img:hover {
+    box-shadow: 2px 2px 20px grey;
+    border-radius: 20px;
+}
+#applications .app .app_apple img {float:right;}
+#applications .app .app_google img {float:left;}
+/* Mise en forme pour écran entre 300 px et 700px */
+@media screen and (min-width: 300px) and (max-width: 766px) {
+    #applications {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    #applications .app .app_apple img {
+        float: none;
+        margin: auto;
+        display: flex;
+        width: 45%;
+    }
+    #applications .app .app_google img {
+        float: none;
+        margin: auto;
+        display: flex;
+        width: 45%;
+    }
+}
+/* Mise en forme pour écran entre 700 px et 1100px  */
+@media screen and (min-width: 766px) and (max-width: 1100px) {
+    #applications {
+        grid-template-columns: repeat(2, 50% 50%);
+    }
+    #applications .app .app_apple img {float:right;}
+    #applications .app .app_google img {float:left;}
+}
+/* Mise en forme pour écran entre 700 px et 1100px  */
+@media screen and (min-width: 1100px) and (max-width: 1600px) {
+    #applications {
+        grid-template-columns: repeat(2, 50% 50%);
+    }
+    #applications .app .app_apple img {float:right;}
+    #applications .app .app_google img {float:left;}
+}
+/* --------------------------------------------------- */
+
+
+/* ------------------ SECTION : 3018 ----------------- */
+/* --------------------------------------------------- */
+.about {
+	width: 100%;
+	background-color: #2337FA;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+    margin-top: 50px;
+}
+.about img{
+    margin: auto;
+    display: flex;
+	padding-left: 100px;
+    width: 25%;
+}
+.about_texte {
+	width: 100%;
+}
+.about_texte p{
+	color: white;
+	letter-spacing: 1px;
+	line-height: 22px;
+	font-size: 18px;
+	text-align: left;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+/* MISE EN PAGE INTRODUCTION POUR SMARTPHONE */
+@media screen and (max-width: 750px) {
+    .about {
+		display: block;
+    }
+    .about img{
+		width: 90%;
+        padding: 15px 5% 15px 5%;
+		margin: auto;
+		text-align: center;
+		display: flex;
+	}
+    .about_texte p{
+        padding:0 20px 15px 20px;
+    }
+}
+/* --------------------------------------------------- */
+
+
+/* -------------- SECTION : GOUVERNEMENT ------------- */
+/* --------------------------------------------------- */
+#reseaux .social_icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    margin-top: 25px;
+    flex-wrap: wrap;
+    color: #c9272f;
+    padding: 0;
+    list-style: none;
+}
+#reseaux .social_icon li a {
+    font-size: 30px;
+    color: #c9272f;
+    margin: -6px 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+#reseaux .social_icon li a:hover {
+    transform: translateY(-10px);
+    color: #2337FA;
+}
+/* --------------------------------------------------- */
+
+
+/* -------------- PIED DE PAGE : FOOTER -------------- */
+/* --------------------------------------------------- */
+footer {
+    position: sticky;
+    background: #fff;
+    padding: 10px 20px;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0.2px 1px 10px grey;
+}
+footer .social_icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    color: #040404;
+    padding: 0;
+    list-style: none;
+}
+footer .social_icon li a {
+    font-size: 20px;
+    color: #040404;
+    margin: -6px 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+footer .social_icon li a:hover {
+    transform: translateY(-10px);
+    color: #c9272f;
+}
+footer p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #040404;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+/* MISE EN PAGE POUR SMARTPHONE */
+@media screen and (max-width: 750px) {
+	footer {
+		justify-content: flex-start;
+	}
+	footer .column {
+		width: 80%;
+	}
+}
+/* --------------------------------------------------- */
+
+
+
+
